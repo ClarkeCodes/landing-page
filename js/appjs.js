@@ -25,8 +25,8 @@ const fragment = document.createDocumentFragment();
 
 for(section of sections) {
     const listElement = document.createElement('li');
-    listElement.innerHTML = `<a href="#${section.id}">${section.dataset.nav}</a>`;
-    
+    listElement.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
+
     fragment.appendChild(listElement);
 }
 

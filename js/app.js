@@ -25,7 +25,10 @@ const sections = document.querySelectorAll('section');
  * 
 */
 
-
+const navbar = document.querySelector('.navbar__menu');
+// for(section of sections) {
+    
+// }
 
 /**
  * End Helper Functions
@@ -38,7 +41,7 @@ const fragment = document.createDocumentFragment();
 
 for(section of sections) {
     const listElement = document.createElement('li');
-    listElement.innerHTML = `<a href="#${section.id}">${section.dataset.nav}</a>`;
+    listElement.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
     
     fragment.appendChild(listElement);
 }
@@ -50,7 +53,15 @@ for(section of sections) {
 
 
 // Scroll to anchor ID using scrollTO event
-
+function smoothScroll(event) {
+    event.preventDefault();
+    const element = document.querySelector(`section${event.target.hash}`);
+    scrollTo({
+        top: element.offsetTop,
+        left: 0,
+        behavior: "smooth"
+    });
+}
 
 /**
  * End Main Functions
@@ -62,5 +73,6 @@ for(section of sections) {
 document.querySelector('#navbar__list').appendChild(fragment);
 
 // Scroll to section on link click
+navbar.addEventListener('click', smoothScroll);
 
 // Set sections as active
