@@ -89,6 +89,21 @@ section {
     transition: ease 0.3s all;
 }
 
+#navbar__list { 
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#navbar__list > li {
+    flex: 0 50%;
+}
+
+@media (min-width: 700px) {
+    #navbar__list { 
+        display: block;
+    }
+}
+
 /* Header Styles */
 .page__header {
     background: #fff;
