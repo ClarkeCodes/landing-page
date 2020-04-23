@@ -16,5 +16,5 @@ For this project I used the [starter HTML and CSS files](https://github.com/udac
 In addition to everything I learned from the course materials, I referenced the following pages to create my project.
 
 * [CodeGuage](https://www.codeguage.com/courses/js/events-scroll-event): Scroll Event
-* []()
+* [Stackoverflow](https://stackoverflow.com/questions/10572735/javascript-getelement-by-href): Get element by href
 * []()

@@ -38,7 +38,7 @@ function findRange(section) {
     return range;
 }
 
-// Check if current position is within the range of a section, returns a boolean
+// Check if current position is within the range of a section, returns boolean
 function inRange(curr, section) {
     const range = findRange(section);
     if(curr >= range.top && curr <= range.end) {
@@ -47,12 +47,26 @@ function inRange(curr, section) {
     return false;
 }
 
-// Check if current element has the active class
+// Check if current element has the active class, returns boolean
 function isActive(section) {
     if(section.classList.length > 0) {
         return true;
     }
     return false;
+}
+
+// Check which nav link is highlighted, and update if needed
+function navActive(target) {
+    const navLink = document.querySelector(`a[href="#${target}"]`);
+    if(document.querySelector('.current') === null) {
+        navLink.classList.add('current');
+        return;
+    }
+    else if(navLink.classList.length > 1){
+        return;
+    }
+    document.querySelector('.current').classList.remove('current');
+    navLink.classList.add('current');
 }
 
 // Throttle scroll events to fire every 200ms
@@ -62,15 +76,6 @@ setInterval(function () {
         scrolling = false;
     }
 }, 200);
-
-
-// Find current active nav link 
-// function navActive(section) {
-    
-//     const curActive = document.querySelector('.menu__link.current');
-
-//     console.log(curActive);
-// }
 
 /**
  * End Helper Functions
@@ -89,13 +94,12 @@ for(section of sections) {
 }
 
 
-// Add class 'active' to section when near top of viewport
+// Add class 'active' to section when near top of viewport and highlight nav link
 function addClass(cursor) {
-    // if section is in range, check if element is already active, if not, add class
     for(section of sections) {
         if(inRange(cursor, section)) {
+            navActive(section.id);
             if(isActive(section)) {
-                console.log(section.id);
                 return;
             }
             else {
@@ -109,10 +113,7 @@ function addClass(cursor) {
 // Scroll to anchor ID using scrollTO event and highlight clicked button
 function smoothScroll(event) {
     event.preventDefault();
-    // const clickeddocument.querySelector(`a[href="${event.target.hash}"]`);
-    // check if clicked link is highlighted
-    // event.target.classList.add('current');
-    // const element = document.querySelector(`section${event.target.hash}`);
+    const element = document.querySelector(`section${event.target.hash}`);
     scrollTo({
         top: element.offsetTop,
         left: 0,
@@ -126,8 +127,6 @@ function smoothScroll(event) {
  * 
 */
 
-// const startingTime = performance.now();
-
 // Build menu 
 document.querySelector('#navbar__list').appendChild(fragment);
 
@@ -139,6 +138,3 @@ document.addEventListener('scroll', function(event) {
     cursor = event.path[1].scrollY;
     scrolling = true;
 });
-
-// const endTime = performance.now();
-// console.log("This time took " + (endTime - startingTime) + ' ms');
