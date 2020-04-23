@@ -32,7 +32,7 @@ let cursor;
 // Get the top and bottom Y coordinates of a given page section, returns an object
 function findRange(section) {
     const range = {
-        top: section.offsetTop - 100, 
+        top: section.offsetTop - 100,
         end: section.offsetTop + section.offsetHeight - 100
     };
     return range;
@@ -62,7 +62,7 @@ function navActive(target) {
         navLink.classList.add('current');
         return;
     }
-    else if(navLink.classList.length > 1){
+    else if(navLink.classList.length > 1) {
         return;
     }
     document.querySelector('.current').classList.remove('current');
@@ -117,7 +117,7 @@ function smoothScroll(event) {
     scrollTo({
         top: element.offsetTop,
         left: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 }
 
