@@ -1,13 +1,13 @@
-# Landing Page Project
+# Project 2: Landing Page
+Udacity Front End Development Nanodegree
 
-## Table of Contents
+## Live
 
 * [Instructions](#instructions)
 
-## Instructions
+## Description
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Course description: "This project requires you to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page." 
 
-To get started, open `js/app.js` and start building out the app's functionality
+For this project I used the [starter HTML and CSS files](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page) provided by Udacity and transformed this static page into an interactive one. All Javascript is written by me, and I've also made small changes to the CSS and HTML files.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
