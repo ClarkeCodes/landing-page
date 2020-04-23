@@ -3,7 +3,7 @@ Udacity Front End Development Nanodegree
 
 ## Live
 
-* [Instructions](#instructions)
+TBA
 
 ## Description
 
@@ -11,3 +11,10 @@ Course description: "This project requires you to build a multi-section landing 
 
 For this project I used the [starter HTML and CSS files](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page) provided by Udacity and transformed this static page into an interactive one. All Javascript is written by me, and I've also made small changes to the CSS and HTML files.
 
+## Resources
+
+In addition to everything I learned from the course materials, I referenced the following pages to create my project.
+
+* [CodeGuage](https://www.codeguage.com/courses/js/events-scroll-event): Scroll Event
+* []()
+* []()

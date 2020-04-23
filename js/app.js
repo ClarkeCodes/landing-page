@@ -20,6 +20,8 @@
 
 const sections = document.querySelectorAll('section');
 const navbar = document.querySelector('.navbar__menu');
+let scrolling = false;
+let cursor;
 
 /**
  * End Global Variables
@@ -50,8 +52,25 @@ function isActive(section) {
     if(section.classList.length > 0) {
         return true;
     }
-    else return false;
+    return false;
 }
+
+// Throttle scroll events to fire every 200ms
+setInterval(function () {
+    if(scrolling) {
+        addClass(cursor);
+        scrolling = false;
+    }
+}, 200);
+
+
+// Find current active nav link 
+// function navActive(section) {
+    
+//     const curActive = document.querySelector('.menu__link.current');
+
+//     console.log(curActive);
+// }
 
 /**
  * End Helper Functions
@@ -71,13 +90,12 @@ for(section of sections) {
 
 
 // Add class 'active' to section when near top of viewport
-function addClass(event) {
-    const cursor = event.path[1].scrollY;
-
-    // check if section is in range
+function addClass(cursor) {
+    // if section is in range, check if element is already active, if not, add class
     for(section of sections) {
         if(inRange(cursor, section)) {
             if(isActive(section)) {
+                console.log(section.id);
                 return;
             }
             else {
@@ -88,10 +106,13 @@ function addClass(event) {
     }
 }
 
-// Scroll to anchor ID using scrollTO event
+// Scroll to anchor ID using scrollTO event and highlight clicked button
 function smoothScroll(event) {
     event.preventDefault();
-    const element = document.querySelector(`section${event.target.hash}`);
+    // const clickeddocument.querySelector(`a[href="${event.target.hash}"]`);
+    // check if clicked link is highlighted
+    // event.target.classList.add('current');
+    // const element = document.querySelector(`section${event.target.hash}`);
     scrollTo({
         top: element.offsetTop,
         left: 0,
@@ -105,6 +126,8 @@ function smoothScroll(event) {
  * 
 */
 
+// const startingTime = performance.now();
+
 // Build menu 
 document.querySelector('#navbar__list').appendChild(fragment);
 
@@ -112,4 +135,10 @@ document.querySelector('#navbar__list').appendChild(fragment);
 navbar.addEventListener('click', smoothScroll);
 
 // Set sections as active
-document.addEventListener('scroll', addClass);
+document.addEventListener('scroll', function(event) {
+    cursor = event.path[1].scrollY;
+    scrolling = true;
+});
+
+// const endTime = performance.now();
+// console.log("This time took " + (endTime - startingTime) + ' ms');
