@@ -16,7 +16,7 @@ I implemented the following features/made the following changes:
 
 ## Live
 
-[https://elinej.github.io/landing-page/](https://elinej.github.io/landing-page/)
+[https://elinej.github.io/landing-page/](https://clarkecodes.github.io/landing-page/)
 
 ## Resources
 
